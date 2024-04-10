@@ -49,3 +49,20 @@ const getHeavyDuty = heavyDuty2();
 getHeavyDuty(700);
 getHeavyDuty(688);
 getHeavyDuty(688);
+
+// Encapsulation
+
+const makeNuclearButton = () => {
+  let timeWithoutDestruction = 0;
+  const passTime = () => timeWithoutDestruction++;
+  const totalPeaceTime = () => timeWithoutDestruction;
+  const launch = () => "Booom";
+  setInterval(passTime, 1000);
+  return {
+    launch,
+    totalPeaceTime,
+  };
+};
+
+const ohno = makeNuclearButton();
+console.log(ohno.launch());
