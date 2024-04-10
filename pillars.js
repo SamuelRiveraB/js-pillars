@@ -22,3 +22,30 @@ function b() {
 b()();
 var d = b();
 d();
+
+// Closures
+
+// Memory efficient
+
+function heavyDuty(index) {
+  const bigArray = new Array(7000).fill("A");
+  console.log("Created!");
+  return bigArray[index];
+}
+
+heavyDuty(688);
+heavyDuty(688);
+heavyDuty(688);
+
+function heavyDuty2() {
+  const bigArray = new Array(7000).fill("A");
+  console.log("Created again!");
+  return function (index) {
+    bigArray[index];
+  };
+}
+
+const getHeavyDuty = heavyDuty2();
+getHeavyDuty(700);
+getHeavyDuty(688);
+getHeavyDuty(688);
