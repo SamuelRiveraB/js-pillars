@@ -64,8 +64,8 @@ const makeNuclearButton = () => {
   };
 };
 
-const ohno = makeNuclearButton();
-console.log(ohno.launch());
+// const ohno = makeNuclearButton();
+// console.log(ohno.launch());
 
 // Exercises
 
@@ -86,3 +86,12 @@ const initOnce = initialize();
 console.log(initOnce());
 console.log(initOnce());
 console.log(view);
+
+const array = [1, 2, 3, 4];
+for (var i = 0; i < array.length; i++) {
+  (function (closureI) {
+    setTimeout(function () {
+      console.log("I am at index " + closureI);
+    }, 3000);
+  })(i);
+}
