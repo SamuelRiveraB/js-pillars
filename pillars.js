@@ -66,3 +66,23 @@ const makeNuclearButton = () => {
 
 const ohno = makeNuclearButton();
 console.log(ohno.launch());
+
+// Exercises
+
+let view;
+function initialize() {
+  let called = 0;
+  return function () {
+    if (called > 0) {
+      return "Already set";
+    } else {
+      view = "view";
+      return "view has been set";
+    }
+  };
+}
+
+const initOnce = initialize();
+console.log(initOnce());
+console.log(initOnce());
+console.log(view);
