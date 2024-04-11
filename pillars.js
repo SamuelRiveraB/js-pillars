@@ -88,10 +88,31 @@ console.log(initOnce());
 console.log(view);
 
 const array = [1, 2, 3, 4];
-for (var i = 0; i < array.length; i++) {
-  (function (closureI) {
-    setTimeout(function () {
-      console.log("I am at index " + closureI);
-    }, 3000);
-  })(i);
-}
+// for (var i = 0; i < array.length; i++) {
+//   (function (closureI) {
+//     setTimeout(function () {
+//       console.log("I am at index " + closureI);
+//     }, 3000);
+//   })(i);
+// }
+
+// Prototypal inheritance
+
+// __proto__ should never be used
+
+// Every function has a prototype property
+
+Date.prototype.lastYear = function () {
+  return this.getFullYear() - 1;
+};
+console.log(new Date("1900-10-10").lastYear());
+
+Array.prototype.map = function () {
+  let arr = [];
+  for (let i = 0; i < this.length; i++) {
+    arr.push(this[i] + "map");
+  }
+  return arr;
+};
+
+console.log([1, 2, 3].map());
